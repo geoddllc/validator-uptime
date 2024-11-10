@@ -22,7 +22,7 @@
     let isRotating = true;
 
     async function fetchMonitorData() {
-        const response = await fetch('http://203.189.67.73:8888/state'); // Update this path to your actual JSON data URL
+        const response = await fetch('https://yamoko2608.execute-api.eu-north-1.amazonaws.com/state'); // Update this path to your actual JSON data URL
         const data = await response.json();
         monitorData = data.Status[0];
         // Trigger animation if height has changed
