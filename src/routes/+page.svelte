@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="col-6">
+        <div class="col-sm-6 col-11">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
