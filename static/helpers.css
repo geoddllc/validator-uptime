@@ -583,12 +583,13 @@
   }
   .tracking::before{
     position: absolute;
-    bottom: 0;
+    bottom: 15px;
     left: 0;
     right: 0;
     background-color: #fff;
     height: 10px;
     content: '';
+    z-index: 10;
   }
   .tracking-block{
     height: 10px;
@@ -632,4 +633,9 @@
 
 .monospace{
   font-family: monospace;
+}
+
+.logo{
+  width: 60px;
+  margin-top: 50px;
 }
