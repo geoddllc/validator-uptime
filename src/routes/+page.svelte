@@ -39,7 +39,7 @@
         fetchMonitorData();
 
         // Set interval to fetch every 2 seconds
-        const interval = setInterval(fetchMonitorData, 2000);
+        const interval = setInterval(fetchMonitorData, 3000);
 
         // Clear interval when component is destroyed
         onDestroy(() => clearInterval(interval));
@@ -50,7 +50,7 @@
     <div class="row d-flex justify-content-center p-b-30">
         <div class="col-sm-4">
             <div class="d-flex m-t-30">
-                <span class="status-indicator status-green status-indicator-animated">
+                <span class="status-indicator  {monitorData.active_alerts === 0 ? 'status-green' : 'status-yellow'} status-indicator-animated">
                     <span class="status-indicator-circle"></span>
                     <span class="status-indicator-circle"></span>
                     <span class="status-indicator-circle"></span>
@@ -83,11 +83,24 @@
                     </div>
                     <div class="tracking p-b-15">
                         <div class="tracking-block bg-grey glow-background " data-bs-toggle="tooltip" ></div>
-                        {#each monitorData.blocks as block}
-                            <div class="tracking-block {block === 3 ? 'bg-success' : 'bg-danger'}" data-bs-toggle="tooltip" title={block === 3 ? 'Operational' : 'Downtime'}></div>
-                        {/each}
-                        
-                        
+                            {#each monitorData.blocks as block}
+                                <div 
+                                    class="tracking-block 
+                                        {block === 0 ? 'bg-red' : ''} 
+                                        {block === 1 ? 'bg-yellow' : ''} 
+                                        {block === 2 ? 'bg-orange' : ''} 
+                                        {block === 3 ? 'bg-success' : ''} 
+                                        {block === 4 ? 'bg-azure' : ''}"
+                                    data-bs-toggle="tooltip" 
+                                    title={
+                                        block === 0 ? 'Missed' : 
+                                        block === 1 ? 'Prevote Not Included' : 
+                                        block === 2 ? 'Precommit Not Included' : 
+                                        block === 3 ? 'Signed' : 
+                                        block === 4 ? 'Proposed' : ''
+                                    }
+                                ></div>
+                            {/each}
                     </div>
                 </div>
                 </div>
