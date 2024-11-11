@@ -21,10 +21,10 @@ npm run dev -- --open
 ```
 
 ## Configuration
-Set your Tenderduty URL: In your +page.svelte file, update the fetch URL to point to your Tenderduty backend.
+Set your Tenderduty URL: by creating `.env` below
 
 ```
-const response = await fetch('https://your-api-gateway-url.com/state');
+VITE_TENDERDUTY_API_URL=https://your-api-gateway-url.com/state
 ```
 Note: Use an API Gateway such as AWS API Gateway to add throttling and rate limiting to the Tenderduty URL for preventing abuse.
 

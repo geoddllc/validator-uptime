@@ -26,7 +26,7 @@
     let isRotating = true;
 
     async function fetchMonitorData() {
-        const response = await fetch('https://yamoko2608.execute-api.eu-north-1.amazonaws.com/state'); // Update this path to your actual JSON data URL
+        const response = await fetch(import.meta.env.VITE_TENDERDUTY_API_URL); // Update this path to your actual JSON data URL
         const data = await response.json();
 
         monitorData = data.Status as MonitorDataEntry[]; // Type assertion to ensure TypeScript recognizes the structure
