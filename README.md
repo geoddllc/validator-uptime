@@ -1,6 +1,7 @@
 # Validator Uptime Monitor UI
 
 This project provides a Svelte-based UI for monitoring the uptime of validators. It integrates with a backend powered by [Tenderduty](https://github.com/blockpane/tenderduty) to fetch the current state of validators.
+<img width="1438" alt="main-banner" src="https://github.com/user-attachments/assets/65b00ee7-6742-44f5-928d-158358c3ded8">
 
 ## Prerequisites
 
