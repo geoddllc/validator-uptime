@@ -1,18 +1,13 @@
-# sv
+# Validator Uptime Monitor UI
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This project provides a Svelte-based UI for monitoring the uptime of validators. It integrates with a backend powered by [Tenderduty](https://github.com/blockpane/tenderduty) to fetch the current state of validators.
 
-## Creating a project
+## Prerequisites
 
-If you're seeing this, you've probably already done this step. Congrats!
+To use this project effectively, you need a backend running [Tenderduty](https://github.com/blockpane/tenderduty), which provides uptime and state information about validators.
 
-```bash
-# create a new project in the current directory
-npx sv create
+Additionally, to prevent abuse, we recommend using AWS API Gateway or any other API gateway service to add throttling and rate limiting to your backend endpoint.
 
-# create a new project in my-app
-npx sv create my-app
-```
 
 ## Developing
 
@@ -25,6 +20,14 @@ npm run dev
 npm run dev -- --open
 ```
 
+## Configuration
+Set your Tenderduty URL: In your +page.svelte file, update the fetch URL to point to your Tenderduty backend.
+
+```
+const response = await fetch('https://your-api-gateway-url.com/state');
+```
+Note: Use an API Gateway such as AWS API Gateway to add throttling and rate limiting to the Tenderduty URL for preventing abuse.
+
 ## Building
 
 To create a production version of your app:
@@ -36,3 +39,5 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+
